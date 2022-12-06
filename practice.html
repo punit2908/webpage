@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>website</title>
+    <style type="text/css">
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .di {
+        background: linear-gradient(#00000018, #000000b9),
+          url(img.jpg) fixed center / cover no-repeat;
+        min-height: 100vh;
+        display: flex;
+      }
+      .home {
+        height: 100px;
+        background-color: #16213e;
+        box-shadow: 0 0 50px #00ffff;
+        display: flex;
+        position: fixed;
+        z-index: 5;
+        width: 100%;
+        top: 0px;
+        justify-content: space-between;
+      }
+      ul {
+        float: right;
+        margin: 5px;
+      }
+      ul li {
+        display: inline-block;
+        margin: 30px 10px;
+      }
+      ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        border: 2px solid #00ffff;
+        border-radius: 20px 0px;
+        padding: 10px 20px;
+        background-color: #008080;
+        font-size: 12px;
+        transition: 0.6s ease;
+      }
+      ul li a:hover {
+        border-radius: 0px 20px;
+        background-color: transparent;
+        box-shadow: 0 0 20px #00ffff;
+        color: #00ffff;
+      }
+      .logo h1 {
+        position: relative;
+        color: #ffffff;
+        margin: 15px 200px 0px 5px;
+        text-decoration: underline solid #ff0000 5px;
+        font-size: 50px;
+        font-family: Script MT;
+      }
+      span {
+        color: #ff0000;
+        text-decoration: underline solid #16213e 5px;
+      }
+      #ag1 {
+        text-decoration: underline solid #ff0000 5px;
+      }
+      .conatiner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* flex-direction: row; */
+        min-height: 80vh;
+      }
+      .content {
+        color: #ffffff;
+        padding: 20px;
+        margin-left: 50px;
+        font-size: 30px;
+        text-align: center;
+        width: 400px;
+        height: 200px;
+        margin-top: 200px;
+      }
+      .brn {
+        background-color: #008080;
+        padding: 8px 10px;
+        border-radius: 10px;
+        margin: 10px;
+        font-size: 30px;
+        line-height: 50px;
+        margin-left: 20px;
+        color: #ffffff;
+        text-decoration: none;
+        border: 2px solid transparent;
+        font-weight: 900;
+        transition: 0.6s ease;
+      }
+      .brn:hover {
+        background-color: transparent;
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 20px #00ffff;
+      }
+      #iframe {
+        display: none;
+        position: relative;
+        bottom: 370px;
+        left: 550px;
+        height: 500px;
+        width: 450px;
+      }
+      #iframea {
+        display: none;
+        position: relative;
+        bottom: 370px;
+        left: 550px;
+        height: 500px;
+        width: 450px;
+      }
+      .form {
+        background: linear-gradient(#50048f9d, #50048f9d),
+          url(img3.jpg) fixed center / cover no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .collection {
+        width: 800px;
+      }
+      form {
+        margin: 80px 250px;
+        margin-bottom: 30px;
+      }
+      .int {
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 5px 15px;
+        border-bottom: 2px solid #fff;
+        height: 40px;
+        width: 300px;
+        margin-bottom: 25px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 20px;
+      }
+      .bttn {
+        color: #ffffff;
+        background-color: #0033ff;
+        border: 5px outset #052abd;
+        margin-left: 90px;
+        margin-top: 40px;
+        font-size: 20px;
+        padding: 15px 20px;
+      }
+      #infram {
+        width: 900px;
+        min-height: 80vh;
+        position: fixed;
+        top: 15%;
+        left: 15%;
+      }
+      #cross {
+        display: flex;
+        position: fixed;
+        bottom: 85%;
+        left: 70%;
+        text-decoration: none;
+        font-size: 50px;
+        color: white;
+        font-family: sans-serif;
+      }
+      #logcross {
+        display: none;
+        position: absolute;
+        left: 75%;
+        z-index: 1;
+        bottom: 70%;
+        text-decoration: none;
+        font-size: 60px;
+        color: white;
+        font-family: sans-serif;
+        cursor: pointer;
+      }
+      #signcross {
+        display: none;
+        position: absolute;
+        left: 75%;
+        z-index: 1;
+        bottom: 70%;
+        text-decoration: none;
+        font-size: 60px;
+        color: #fff;
+        font-family: sans-serif;
+        cursor: pointer;
+      }
+      .full{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 30vh;
+      }
+      .slide {
+        font-size: 30px;
+        display: none;
+        flex-direction: column;
+        width: 30%;
+        /* transform: translate(0px, 0px); */
+      }
+      .slide.visible {
+        display:flex;
+      }
+      .slide.show{
+        display:flex;
+      }
+      .slide p {
+        font-size: 15px;
+        font-family: 'Segoe UI';
+        text-align: center;
+        padding: 10px;
+      color: white;
+      }
+      .about {
+        background: linear-gradient(#00000066, #000000bb 25%),
+          url(img2.jpg) fixed center / cover no-repeat;
+        backdrop-filter: blur(50px);
+        min-height: 100vh;
+      }
+      .who{
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        align-items: center;
+        flex-direction: column;
+        /* flex-direction: row; */
+      }
+      .who h5 {
+        color: white;
+        font-size: 70px;
+        font-weight: 600;
+        text-align: center;
+        font-family: sans-serif;
+        margin-top: 150px;
+      }
+      hr {
+        margin-top: 25px;
+        margin-bottom: 80px;
+        background: white;
+        border: none;
+      }
+      h6 {
+        font-size: 25px;
+        text-align: center;
+        padding: 10px;
+        font-family: sans-serif;
+        font-family: 200;
+        color: white;
+        text-transform: uppercase;
+        /* background-color: #ffffffbe; */
+      }
+      .control .next,
+      .control .prev {
+        position: absolute;
+        padding: 8px 18px;
+        background-color: white;
+        color: black;
+        font-size: 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 10px;
+        border: 2px black solid;
+      }
+      .control .next {
+        top: 75%;
+        right: 1px;
+      }
+      .control .prev {
+        top: 75%;
+        left: 1px;
+      }
+      .dots {
+        margin: 20px;
+      }
+      .dots span {
+        background-color: #ffffff7e;
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        margin: 5px;
+        border-radius: 50px;
+      }
+      .dots span.want {
+        background-color: #ffffff;
+      }
+      #log {
+        position: fixed;
+        text-decoration: none;
+        color: white;
+        z-index: 5;
+        bottom: 80px;
+        right: 150px;
+        border-radius: 50px;
+        background-color: #008080;
+        padding: 20px 30px;
+        font-size: 20px;
+        border: 2px white solid;
+        transition: 0.6s;
+      }
+      #log:hover {
+        background-color: rgba(0, 0, 0, 0.603);
+        color: aqua;
+        border: 2px aqua solid;
+      }
+      h1 {
+        font-size: 50px;
+        font-family: sans-serif;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+        color: white;
+      }
+      .embed {
+        display: none;
+        background-color: #00000078;
+        position: fixed;
+        /* left: 40%;
+        top: 20%; */
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+      }
+      .cont {
+        width: 350px;
+        background-color: #000000b9;
+        height: 450px;
+        padding: 20px;
+        border-radius: 25px;
+        position: relative;
+        top: 20%;
+        left: 35%;
+      }
+      .cont p {
+        font-size: 18px;
+        font-family: sans-serif;
+        font-weight: 100;
+        margin-bottom: 45px;
+        text-align: center;
+        color: white;
+      }
+      .cont form input {
+        background: #000000e7;
+        border: none;
+        border-bottom: 2px solid #aeadad;
+        outline: none;
+        cursor: pointer;
+        margin-bottom: 25px;
+        margin-left: 20px;
+        width: 260px;
+        padding: 5px 10px;
+        color: white;
+        position: relative;
+        top: -25px;
+        right: 245px;
+      }
+      .cont form a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        position: absolute;
+        left: -30px;
+        bottom: 130px;
+        font-family: sans-serif;
+      }
+      .cont .btnpu {
+        height: 50px;
+        width: 290px;
+        background-color: #e7c138;
+        border: 5px inset #c4a01f;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 13%;
+        left: 7%;
+      }
+      .cont a {
+        color: aqua;
+        text-decoration: none;
+        font-size: 20px;
+        margin-left: 55px;
+        position: absolute;
+        bottom: 5%;
+      }
+    </style>
+  </head>
+  <body id="bd">
+    <div class="home">
+      <div class="logo">
+        <h1><span>PSB</span><span id="ag1">/</span>Industries</h1>
+      </div>
+      <ul>
+        <li><a href="#ho">Home</a></li>
+        <li><a href="#ab">About Us</a></li>
+        <li><a href="#fo">Contact Us</a></li>
+        <li><a href="#">Services</a></li>
+      </ul>
+    </div>
+    <div class="embed" id="lagg">
+      <span id="cross">X</span>
+      <div class="cont">
+        <h1>LogIn Here</h1>
+        <p>Hy, Enter your details to get LogIn to your account</p>
+        <form>
+          <input
+            type="text"
+            placeholder="Username/E-mail ID"
+            class="logpu"
+          /><br />
+          <input type="password" placeholder="Password" class="logpu" /><br />
+          <a href="#" class="forpu">Having trouble in LogIn?</a><br />
+          <button class="btnpu">LogIn</button>
+        </form>
+        <a href="signup.html" class="signpu">Don't have a account?</a>
+      </div>
+    </div>
+    <!-- <iframe src="imported.html" id="infram" frameborder="0"></iframe> -->
+    <div class="di" id="ho">
+      <a href="#" id="log">LogIn/Signup</a>
+      <div class="container">
+        <div class="content" id="cont">
+          <h3>
+            Welcome to our web page PSB Industries is one of the greatest
+            company
+          </h3>
+          <br />
+          <a href="#" class="brn" id="signup">Sign up</a>
+          <a href="#" class="brn" id="login">Log In</a>
+          <span id="logcross">X</span>
+          <span id="signcross">X</span>
+          <iframe src="login.html" id="iframea" frameborder="0"></iframe>
+          <iframe src="signup.html" id="iframe" frameborder="0"></iframe>
+          <script>
+            let box = document.getElementById('lagg')
+            let butt = document.getElementById('log')
+            let cancel = document.getElementById('cross')
+            let log = document.getElementById('login')
+            let sign = document.getElementById('signup')
+            let page = document.getElementById('iframe')
+            let logpage = document.getElementById('iframea')
+            let logcan = document.getElementById('logcross')
+            let signca = document.getElementById('signcross')
+
+            butt.addEventListener('click', function () {
+              box.style.display = 'flex'
+            })
+            cancel.addEventListener('click', function () {
+              box.style.display = 'none'
+            })
+            log.addEventListener('click', function () {
+              logpage.style.display = 'flex'
+              page.style.display = 'none'
+              signca.style.display = 'none'
+              logcan.style.display = 'flex'
+            })
+            sign.addEventListener('click', function () {
+              page.style.display = 'flex'
+              logpage.style.display = 'none'
+              logcan.style.display = 'none'
+              signca.style.display = 'flex'
+            })
+            logcan.addEventListener('click', function () {
+              logpage.style.display = 'none'
+              logcan.style.display = 'none'
+            })
+            signca.addEventListener('click', function () {
+              page.style.display = 'none'
+              signca.style.display = 'none'
+            })
+            let header = document.querySelector('.home')
+            window.addEventListener('keydown', function (event) {
+              let name = event.key
+              let code = event.code
+
+              switch (code) {
+                case 'ArrowUp':
+                  header.style.display = 'flex'
+                  break
+                case 'ArrowDown':
+                  header.style.display = 'none'
+                  break
+              }
+            })
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="about" id="ab">
+      <div class="who" id="wo">
+        <h5>Who We Are</h5>
+        <hr size="10px" width="20%" />
+        <div class="full">
+        <div class="slide visible show" id="his">
+          <h6>History of PSB Industries</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide visible" id="gov">
+          <h6>Governance</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            fugiat unde ipsam. Nobis libero reiciendis laborum nesciunt, sequi
+            ducimus modi corporis, maxime consectetur ipsam reprehenderit.
+            Dolorem, mollitia reprehenderit? Saepe, esse.
+          </p>
+        </div>
+        <div class="slide visible" id="tr">
+          <h6>Board of Trustees</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide" id="race">
+          <h6>Our commitment to race equality</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide" id="state">
+          <h6>Accessibility Statement</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide" id="polici">
+          <h6>Policies and Procedures</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide" id="access">
+          <h6>Access to Information</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        <div class="slide" id="rep">
+          <h6>PSB Industries Reports</h6>
+          <!-- <hr size="10px" width="65%" /> -->
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque,
+            magni mollitia. Dolorum explicabo, itaque qui aspernatur alias
+            molestiae iusto nisi! Animi, architecto? Incidunt culpa optio labore
+            ea accusantium deleniti vel.
+          </p>
+        </div>
+        </div>
+        <div class="control">
+          <button class="prev" onclick="changeSlide(-1)"><</button>
+          <button class="next" onclick="changeSlide(1)">></button>
+        </div>
+      </div>
+      <div class="dots">
+        <span class="want"></span><span></span><span></span><span></span
+        ><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <script>
+      let slides = 0
+      function slideShow(slides) {
+        let mySlides = document.querySelectorAll('.slide')
+        let myDots = document.querySelectorAll('.dots span')
+        for (var i = 0; i < mySlides.length; i++) {
+          mySlides[i].classList.remove('visible')
+          mySlides[i].classList.remove('show')
+          myDots[i].classList.remove('want')
+        }
+        mySlides[slides].classList.add('visible')
+        mySlides[slides].classList.add('show')
+        myDots[slides].classList.add('want')
+      }
+      slideShow(slides)
+      function changeSlide(n) {
+        slides += n
+        let mySlides = document.querySelectorAll('.slide')
+        if (slides >= mySlides.length) {
+          slides = 0
+        }
+        if (slides < 0) {
+          slides = mySlides.length - 1
+        }
+        console.log(slides)
+        slideShow(slides)
+      }
+      window.addEventListener('keydown', function (event) {
+        let letter = event.key
+        let can = event.code
+        switch (can) {
+          case 'ArrowLeft':
+            changeSlide(-1)
+            break
+          case 'ArrowRight':
+            changeSlide(1)
+            break
+        }
+      })
+    </script>
+    <div class="form" id="fo">
+      <div class="collection">
+        <h3
+          style="
+            font-size: 90px;
+            font-weight: 100;
+            color: #ffffff;
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 85px;
+          "
+        >
+          Contact Us
+        </h3>
+        <p
+          style="
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 100;
+            font-family: Goudy Old Style;
+          "
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+          provident ea incidunt quae. At voluptatem quo, ad deserunt inventore
+          quidem deleniti
+        </p>
+        <form action="#">
+          <input type="text" placeholder="Name" class="int" /><br />
+          <input type="email" placeholder="E-mail" class="int" /><br />
+          <textarea
+            placeholder="Message"
+            cols="31"
+            rows="5"
+            style="
+              background: transparent;
+              border: none;
+              padding: 5px 15px;
+              border-bottom: 2px solid #fff;
+              outline: none;
+              cursor: pointer;
+              color: #fff;
+              font-size: 15px;
+            "
+          ></textarea
+          ><br />
+          <button class="bttn">Let's Talk</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
